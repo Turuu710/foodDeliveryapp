@@ -28,10 +28,7 @@ export const createNewUser = async (req: Request, res: Response) => {
     const token = jwt.sign({ _id: newUser._id }, "hello", {
       expiresIn: "2h",
     });
-    await sendMail(
-      email,
-      `${process.env.BACKEND_API}/verify-email?token=${token}`,
-    );
+    sendMail(email, `${process.env.BACKEND_API}/verify-email?token=${token}`);
     res.status(200).json({
       message: "Шинэ хэрэглэгч амжилттай үүслээ",
       user: newUser,

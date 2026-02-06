@@ -6,12 +6,11 @@ configDotenv();
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 export const sendMail = async (receiver: string, verifyLink: string) => {
-  try {
-    await resend.emails.send({
-      from: `onboarding@resend.dev`,
-      to: receiver,
-      subject: "Verify user",
-      html: `<div
+  await resend.emails.send({
+    from: `onboarding@resend.dev`,
+    to: receiver,
+    subject: "Verify user",
+    html: `<div
     style="
     width: 300px;
     height: 200px;
@@ -28,8 +27,5 @@ export const sendMail = async (receiver: string, verifyLink: string) => {
   <a href="${verifyLink}">Click to verify your account</a>
 </div>
 `,
-    });
-  } catch (error) {
-    console.log(error);
-  }
+  });
 };

@@ -15,10 +15,7 @@ export const verifyPass = async (req: Request, res: Response) => {
     const token = jwt.sign({ _id: existingUser }, "hello", {
       expiresIn: "5min",
     });
-    await sendMail(
-      email,
-      `${process.env.BACKEND_API}/verify-email?token=${token}`,
-    );
+    sendMail(email, `${process.env.BACKEND_API}/verify-email?token=${token}`);
     // const oldPassword = existingUser?.password
     const isValidPassword = compareSync(password, existingUser.password);
     if (!isValidPassword) {
