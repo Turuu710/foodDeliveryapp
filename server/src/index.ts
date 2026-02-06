@@ -16,7 +16,8 @@ app.use("/user", userRouter);
 app.use("/food", foodRouter);
 app.use("/order", orderRouter);
 
+connectMongoDB();
+
 app.listen(7000, async () => {
   console.log("Listening");
-  await connectMongoDB();
 });
