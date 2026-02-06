@@ -15,7 +15,7 @@ const transporter = nodemailer.createTransport({
 
 export const sendMail = async (receiver: string, verifyLink: string) => {
   try {
-    await transporter.sendMail({
+    await resend.emails.send({
       from: `"Food Delivery"${APP_USER_MAIL}`,
       to: receiver,
       subject: "Verify user",
