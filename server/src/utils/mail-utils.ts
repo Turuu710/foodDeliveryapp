@@ -2,21 +2,13 @@ import nodemailer from "nodemailer";
 import { configDotenv } from "dotenv";
 import { Resend } from "resend";
 configDotenv();
-const { APP_USER_MAIL, APP_PASSWORD } = process.env;
+
 const resend = new Resend(process.env.RESEND_API_KEY);
-const transporter = nodemailer.createTransport({
-  service: "gmail",
-  port: 587,
-  auth: {
-    user: APP_USER_MAIL,
-    pass: APP_PASSWORD,
-  },
-});
 
 export const sendMail = async (receiver: string, verifyLink: string) => {
   try {
     await resend.emails.send({
-      from: `"Food Delivery"${APP_USER_MAIL}`,
+      from: `onboarding@resend.dev`,
       to: receiver,
       subject: "Verify user",
       html: `<div
