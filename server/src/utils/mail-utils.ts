@@ -7,7 +7,7 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 
 export const sendMail = async (receiver: string, verifyLink: string) => {
   await resend.emails.send({
-    from: `onboarding@resend.dev`,
+    from: "onboarding@resend.dev",
     to: receiver,
     subject: "Verify user",
     html: `<div
