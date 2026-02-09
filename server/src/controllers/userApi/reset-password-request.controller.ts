@@ -17,11 +17,11 @@ export const verifyPass = async (req: Request, res: Response) => {
     });
     sendMail(email, `${process.env.BACKEND_API}/verify-email?token=${token}`);
     // const oldPassword = existingUser?.password
-    const isValidPassword = compareSync(password, existingUser.password);
-    if (!isValidPassword) {
-      res.status(400).json({ message: " " });
-      return;
-    }
+    // const isValidPassword = compareSync(password, existingUser.password);
+    // if (!isValidPassword) {
+    //   res.status(400).json({ message: " " });
+    //   return;
+    // }
     res.status(200).send({ user: existingUser });
   } catch (error) {
     console.error(error);
