@@ -10,7 +10,7 @@ export const sendMail = async (receiver: string, verifyLink: string) => {
     to: receiver,
     subject: "Verify user",
     html: `<div
-    style="
+  style="
     width: 300px;
     height: 200px;
     display: flex;
@@ -21,10 +21,21 @@ export const sendMail = async (receiver: string, verifyLink: string) => {
     border-radius: 8px;
     font-family: Arial, sans-serif;
     text-align: center;
+    background-color: aliceblue;
   "
 >
-  <a href="${verifyLink}">Click to verify your account</a>
+  <a
+    style="
+      :hover {
+        background-color: grey;
+        font-size: 18px;
+      }
+    "
+    href="${verifyLink}"
+    >Click to verify your account</a
+  >
 </div>
+
 `,
   });
 };

@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { createNewFoods } from "../controllers/foodApi";
+import { createNewFoods, deleteFood } from "../controllers/foodApi";
 import { authencation, authorization } from "../middlewares";
 import { UserRole } from "../models";
 
@@ -10,3 +10,4 @@ foodRouter.post(
   authorization(UserRole.ADMIN),
   createNewFoods,
 );
+foodRouter.delete("/delete-food", deleteFood);
