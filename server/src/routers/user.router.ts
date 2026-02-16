@@ -2,6 +2,7 @@ import { Router } from "express";
 import {
   createNewUser,
   deleteUser,
+  resetPassword,
   signInNewUser,
   verifyPass,
   verifyResetPassword,
@@ -21,3 +22,4 @@ userRouter.get("verify-user", verifyResetPassword);
 userRouter.post("/signin-user", signInNewUser);
 userRouter.post("/reset-password-request", verifyPass);
 userRouter.delete("/delete-user", deleteUser);
+userRouter.post("reset-password", resetPassword);

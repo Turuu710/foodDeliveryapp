@@ -7,7 +7,7 @@ export const createNewUser = async (req: Request, res: Response) => {
   try {
     const { userName, email, password, phoneNumber, address } = req.body;
     const existingUser = await UserModel.findOne({ email });
-    if (existingUser) {
+    if (!existingUser) {
       // console.error("failed");
 
       res.status(400).json({
